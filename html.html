@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DevWeb</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Menú de Navegación -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <h2 class="logo">DevWeb</h2>
+            <ul class="nav-menu">
+                <li><a href="#inicio" class="nav-link active">Inicio</a></li>
+                <li><a href="#ofrecemos" class="nav-link">Qué Ofrecemos</a></li>
+                <li><a href="#portafolio" class="nav-link">Portafolio</a></li>
+                <li><a href="#contacto" class="nav-link">Contáctanos</a></li>
+            </ul>
+            <div class="navbar-right">
+                <a href="https://cotizador2026.netlify.app" target="_blank" rel="noopener noreferrer" class="btn-cotizador">Cotizador</a>
+                
+                <!-- Área de Usuario No Logueado -->
+                <div id="no-logged" class="auth-buttons">
+                    <button class="btn-login" onclick="toggleLoginForm()">Iniciar Sesión</button>
+                    <button class="btn-register" onclick="toggleRegisterForm()">Registrarse</button>
+                </div>
+                
+                <!-- Área de Usuario Logueado -->
+                <div id="logged" class="user-logged">                    <span class="user-name" id="user-display">Usuario</span>
+                    <button class="btn-logout" onclick="logout()">Cerrar Sesión</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Modal de Login -->
+    <div id="login-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeLoginForm()">&times;</span>
+            <h2>Iniciar Sesión</h2>
+            <form id="login-form" onsubmit="handleLogin(event)">
+                <input type="email" id="login-email" placeholder="Correo electrónico" required>
+                <input type="password" id="login-password" placeholder="Contraseña" required>
+                <button type="submit" class="btn-submit-modal">Entrar</button>
+            </form>
+            <p class="modal-text">¿No tienes cuenta? <a href="#" onclick="switchToRegister()">Regístrate aquí</a></p>
+        </div>
+    </div>
+
+    <!-- Modal de Registro -->
+    <div id="register-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeRegisterForm()">&times;</span>
+            <h2>Registrarse</h2>
+            <form id="register-form" onsubmit="handleRegister(event)">
+                <input type="text" id="register-username" placeholder="Nombre de usuario" required>
+                <input type="email" id="register-email" placeholder="Correo electrónico" required>
+                <input type="password" id="register-password" placeholder="Contraseña" required>
+                <input type="password" id="register-password-confirm" placeholder="Confirmar contraseña" required>
+                <button type="submit" class="btn-submit-modal">Registrarse</button>
+            </form>
+            <p class="modal-text">¿Ya tienes cuenta? <a href="#" onclick="switchToLogin()">Inicia sesión aquí</a></p>
+        </div>
+    </div>
+
+    <!-- Sección Inicio -->
+    <section id="inicio" class="section inicio-section">
+        <div class="background">
+            <div class="moving-element element-1"></div>
+            <div class="moving-element element-2"></div>
+            <div class="moving-element element-3"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+        </div>
+        <div class="content">
+            <h1>DevWeb</h1>
+            <p>Creación de sitios web para tu negocio</p>
+            <p class="hint">Haz clic en cualquier parte de la pantalla</p>
+        </div>
+    </section>
+
+    <!-- Sección Qué Ofrecemos -->
+    <section id="ofrecemos" class="section ofrecemos-section">
+        <div class="content-section">
+            <h2>¿Qué Ofrecemos?</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">💻</div>
+                    <h3>Diseño Responsivo</h3>
+                    <p>Sitios web que se adaptan a cualquier dispositivo</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">⚡</div>
+                    <h3>Rendimiento Rápido</h3>
+                    <p>Páginas optimizadas para cargar en segundos</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🔒</div>
+                    <h3>Seguridad Total</h3>
+                    <p>Protección completa para tu sitio web</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">📊</div>
+                    <h3>Analytics</h3>
+                    <p>Monitorea el rendimiento de tu sitio</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Cómo Trabajamos -->
+    <section id="comotrabajamos" class="section trabajamos-section">
+        <div class="content-section">
+            <h2>Cómo Trabajamos</h2>
+            <div class="trabajo-content">
+                <p class="intro-text">En DevWeb, nos apasiona la programación y creemos en la excelencia en cada proyecto que realizamos.</p>
+                
+                <div class="trabajo-grid">
+                    <div class="trabajo-item">
+                        <h3>🎯 Precisión y Calidad</h3>
+                        <p>Escribimos código limpio, bien documentado y siguiendo las mejores prácticas de la industria. Cada línea cuenta y cada detalle importa.</p>
+                    </div>
+                    
+                    <div class="trabajo-item">
+                        <h3>💡 Innovación Constante</h3>
+                        <p>Utilizamos las tecnologías más modernas y tendencias actuales para garantizar que tu proyecto esté siempre a la vanguardia.</p>
+                    </div>
+                    
+                    <div class="trabajo-item">
+                        <h3>🤝 Colaboración Efectiva</h3>
+                        <p>Trabajamos como un equipo unido, comunicándonos claramente contigo en cada etapa del desarrollo para asegurar que tu visión se haga realidad.</p>
+                    </div>
+                    
+                    <div class="trabajo-item">
+                        <h3>⚙️ Optimización Continua</h3>
+                        <p>No nos conformamos con lo básico. Optimizamos rendimiento, velocidad y experiencia del usuario en cada aspecto del desarrollo.</p>
+                    </div>
+                    
+                    <div class="trabajo-item">
+                        <h3>🔍 Atención al Detalle</h3>
+                        <p>Realizamos pruebas exhaustivas para garantizar que todo funcione perfectamente en cualquier navegador y dispositivo.</p>
+                    </div>
+                    
+                    <div class="trabajo-item">
+                        <h3>🚀 Pasión por el Código</h3>
+                        <p>Amamos lo que hacemos. Cada proyecto es una oportunidad para crear algo excepcional que genere impacto real en el mundo digital.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Portafolio -->
+    <section id="portafolio" class="section portafolio-section">
+        <div class="content-section">
+            <h2>Nuestro Portafolio</h2>
+            <div class="portfolio-grid">
+                <div class="portfolio-card">
+                    <div class="portfolio-image">🛍️</div>
+                    <h3>Tienda Online</h3>
+                    <p>E-commerce completo con carrito de compras</p>
+                </div>
+                <div class="portfolio-card">
+                    <div class="portfolio-image">📱</div>
+                    <h3>App Web</h3>
+                    <p>Aplicación web progresiva y moderna</p>
+                </div>
+                <div class="portfolio-card">
+                    <div class="portfolio-image">🏢</div>
+                    <h3>Sitio Corporativo</h3>
+                    <p>Presencia profesional para tu empresa</p>
+                </div>
+                <div class="portfolio-card">
+                    <div class="portfolio-image">🎨</div>
+                    <h3>Portfolio Creativo</h3>
+                    <p>Muestra tu trabajo de forma impactante</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Contacto -->
+    <section id="contacto" class="section contacto-section">
+        <div class="content-section">
+            <h2>Contáctanos</h2>
+            <div class="contacto-container">
+                <div class="contact-form">
+                    <!-- Para recibir los mensajes en tu correo reemplaza tu-email@ejemplo.com por tu email real -->
+                    <form id="contactForm" action="https://formsubmit.co/tu-email@ejemplo.com" method="POST">
+                        <input type="text" name="name" placeholder="Tu nombre" required>
+                        <input type="email" name="email" placeholder="Tu correo" required>
+                        <textarea name="message" placeholder="Tu mensaje" rows="5" required></textarea>
+                        <input type="hidden" name="_subject" value="Nuevo mensaje desde DevWeb">
+                        <input type="hidden" name="_captcha" value="false">
+                        <button type="submit" class="btn-submit">Enviar Mensaje</button>
+                    </form>
+                </div>
+                <div class="contact-info">
+                    <div class="info-item">
+                        <span class="info-icon">📍</span>
+                        <div>
+                            <h4>Ubicación</h4>
+                            <p>Colombia e Argentina</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-icon">📞</span>
+                        <div>
+                            <h4>Teléfono</h4>
+                            <p>+57 321 750-7874</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-icon">📧</span>
+                        <div>
+                            <h4>Email</h4>
+                            <p>info.developerweb26@gmail.com</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
